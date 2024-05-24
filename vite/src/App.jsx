@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MetamaskButton from "./components/MetamaskButton";
 import Erc20Connect from "./components/Erc20Connect";
+import Balance from "./components/Balance";
 
 const App = () => {
   const [signer, setSigner] = useState();
@@ -34,12 +35,8 @@ const App = () => {
           <div className="box-style text-center">
             0x0556A0f2F49B8920f553031FEB573a12Eac6b58d
           </div>
-          <Erc20Connect
-            name={name}
-            symbol={symbol}
-            signer={signer}
-            setContract={setContract}
-          />
+          <Erc20Connect name={name} signer={signer} setContract={setContract} />
+          {name && <Balance name={name} symbol={symbol} contract={contract} />}
         </div>
       )}
     </div>
